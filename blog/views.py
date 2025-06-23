@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Publicacion
+from .models import Publicacion, Jugadores
 from django.contrib.auth.models import User
 
 def lista_public(request):
@@ -25,3 +25,6 @@ def lista_public(request):
         'usuarios': usuarios,
         'usuario_activo': usuario_activo
     })
+def lista_jugadores(request):
+    jugadores=Jugadores.objects.all()
+    return render(request,'blog/lista_jugadores.html',{'jugadores':jugadores})

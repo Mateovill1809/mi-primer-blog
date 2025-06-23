@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+<head>
+	<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+	<div class="page-header">
+	<h1><a href="/">Defensa Talleres LPF 24/25</a></h1>
+    </div>
+	<div class="post">
+	{%for jugadores in jugadores%}
+		<img src="{{ jugadores.img }}" alt="{{ jugadores.nombre }}" style="max-height: 190px; float: left; margin-right: 20px; border-radius: 5px;">
+		<h2><a href="">{{jugadores.nombre}} | {{jugadores.posicion}}</a></h2>
+    	<p><b>Ciudad:</b> {{ jugadores.ciudad}} | <b>Altura:</b> {{ jugadores.altura}}m | <b>Valor:</b> {{ jugadores.valor}} € | <b>Por:</b> {{ jugadores.autor.username }}</p>
+		<p>{{ jugadores.caracteristicas}}</p>
+    	<p><b>Publicado:</b> {{ jugadores.fecha_publicacion}}</p>
+	{%endfor%}
+	</div>
+</body>
+</html>
